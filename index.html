@@ -4,16 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SmartSolar – Điện mặt trời ban công tự lắp đặt trong 30 phút</title>
-<meta name="description" content="Hệ thống điện mặt trời mini tự lắp đặt tại ban công trong 30 phút. Tiết kiệm đến 600.000₫/tháng, hoàn vốn dưới 2.5 năm — không cần thợ, không cần giấy phép EVN.">
+<meta name="description" content="Hệ thống điện mặt trời mini tự lắp đặt tại ban công trong 30 phút. Tiết kiệm đến 400.000₫/tháng, hoàn vốn trong khoảng 3 năm — không cần thợ, không cần giấy phép EVN.">
 <link rel="canonical" href="https://shop.smartsolar.com.vn/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SmartSolar">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:url" content="https://shop.smartsolar.com.vn/">
 <meta property="og:title" content="SmartSolar – Điện mặt trời ban công tự lắp đặt trong 30 phút">
-<meta property="og:description" content="Tự sản xuất điện mặt trời ngay tại ban công nhà bạn. Tiết kiệm đến 600.000₫/tháng, lắp đặt trong 30 phút.">
+<meta property="og:description" content="Tự sản xuất điện mặt trời ngay tại ban công nhà bạn. Tiết kiệm đến 400.000₫/tháng, lắp đặt trong 30 phút.">
 <meta property="og:image" content="https://shop.smartsolar.com.vn/uploads/SmartSolar%20Webclip.png">
 <meta name="twitter:card" content="summary">
+<meta name="google-site-verification" content="VEEWyb2AFmu_8Kl3Xd6lRMNgXxnkElph4-8hpa4_VdE" />
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -48,7 +49,6 @@ src="https://www.facebook.com/tr?id=1753517255725608&ev=PageView&noscript=1"
   a:hover{color:#145c30;}
   @keyframes logoMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 </style>
-<script src="./image-slot.js"></script>
 <script type="module" src="https://w.behold.so/widget.js"></script>
 </helmet>
 
@@ -139,9 +139,10 @@ src="https://www.facebook.com/tr?id=1753517255725608&ev=PageView&noscript=1"
               </button>
               <sc-if value="{{ isBankTransfer }}" hint-placeholder-val="{{ false }}">
                 <div style="margin-top:16px;display:grid;grid-template-columns:{{ qrCols }};gap:20px;align-items:center;background:#f6f7f9;border-radius:12px;padding:20px">
-                  <img src="{{ qrMockSrc }}" alt="{{ c.checkout.qrAlt }}" loading="lazy" width="180" height="180" style="width:180px;height:180px;border-radius:8px;justify-self:center;display:block" />
+                  <div style="justify-self:center;text-align:center">
+                    <img src="uploads/payment/acb-vietqr.png" alt="{{ c.checkout.qrAlt }}" loading="lazy" width="487" height="353" style="width:220px;height:auto;border-radius:8px;display:block" />
+                  </div>
                   <div>
-                    <div style="display:inline-block;background:#fef2f2;color:#b91c1c;font-size:12px;font-weight:800;padding:6px 10px;border-radius:6px;margin-bottom:12px;line-height:1.4">{{ c.checkout.mockup }}</div>
                     <sc-for list="{{ paymentRows }}" as="row" hint-placeholder-count="5">
                       <div style="display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #eef0f3;font-size:14px">
                         <span style="color:#6b7280;font-weight:600">{{ row.label }}</span>
@@ -188,9 +189,11 @@ src="https://www.facebook.com/tr?id=1753517255725608&ev=PageView&noscript=1"
         <p style="font-size:15px;color:#374151;font-weight:600;margin:0 0 28px">{{ c.checkout.orderRef }}: <span style="color:#0d1117;font-weight:900">{{ placedRef }}</span></p>
         <h2 style="font-size:18px;font-weight:800;color:#0d1117;margin:0 0 16px">{{ c.confirm.payNow }}</h2>
         <div style="display:grid;grid-template-columns:{{ qrCols }};gap:20px;align-items:center;background:#f6f7f9;border-radius:12px;padding:20px;margin-bottom:28px">
-          <img src="{{ qrMockSrc }}" alt="{{ c.checkout.qrAlt }}" loading="lazy" width="180" height="180" style="width:180px;height:180px;border-radius:8px;justify-self:center;display:block" />
+          <div style="justify-self:center;text-align:center">
+            <img src="uploads/payment/acb-vietqr.png" alt="{{ c.checkout.qrAlt }}" loading="lazy" width="487" height="353" style="width:220px;height:auto;border-radius:8px;display:block" />
+            <a href="uploads/payment/acb-vietqr.png" download="{{ qrFileName }}" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:800;color:#1a6e3c;text-decoration:none;padding:8px 14px;border:1.5px solid #1a6e3c;border-radius:50px" style-hover="background:#eaf4ee">⬇ {{ c.checkout.saveQr }}</a>
+          </div>
           <div>
-            <div style="display:inline-block;background:#fef2f2;color:#b91c1c;font-size:12px;font-weight:800;padding:6px 10px;border-radius:6px;margin-bottom:12px;line-height:1.4">{{ c.checkout.mockup }}</div>
             <sc-for list="{{ paymentRows }}" as="row" hint-placeholder-count="5">
               <div style="display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #eef0f3;font-size:14px">
                 <span style="color:#6b7280;font-weight:600">{{ row.label }}</span>
@@ -294,7 +297,7 @@ src="https://www.facebook.com/tr?id=1753517255725608&ev=PageView&noscript=1"
         <sc-for list="{{ c.howItWorks.steps }}" as="s" hint-placeholder-count="4">
           <div>
             <div style="width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:#f6f7f9;margin-bottom:24px">
-              <image-slot id="{{ s.slotId }}" shape="circle" placeholder="{{ s.placeholder }}"></image-slot>
+              <img src="{{ s.img }}" alt="{{ s.alt }}" loading="lazy" width="330" height="330" style="width:100%;height:100%;object-fit:cover;display:block" />
             </div>
             <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:10px">
               <span style="font-size:13px;font-weight:800;color:#d4b020;text-transform:uppercase;letter-spacing:0.5px">{{ c.howItWorks.stepLabel }}</span>
@@ -345,7 +348,7 @@ src="https://www.facebook.com/tr?id=1753517255725608&ev=PageView&noscript=1"
       <h2 style="font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:-0.8px;color:#0d1117;line-height:1.15;margin-bottom:8px">{{ c.product.title }}</h2>
       <p style="font-size:16px;color:#6b7280;margin-bottom:48px;font-weight:600">{{ c.product.subtitle }}</p>
       <div style="display:grid;grid-template-columns:{{ productCols }};gap:56px;align-items:start">
-        <div style="position:relative;border-radius:20px;overflow:hidden;aspect-ratio:1/1;background:#fff;touch-action:pan-y" onMouseEnter="{{ pauseCarousel }}" onMouseLeave="{{ resumeCarousel }}" onTouchStart="{{ carouselTouchStart }}" onTouchEnd="{{ carouselTouchEnd }}">
+        <div id="product-carousel" style="position:relative;border-radius:20px;overflow:hidden;aspect-ratio:1/1;background:#fff;touch-action:pan-y" onMouseEnter="{{ pauseCarousel }}" onMouseLeave="{{ resumeCarousel }}" onTouchStart="{{ carouselTouchStart }}" onTouchEnd="{{ carouselTouchEnd }}">
           <div style="{{ carouselTrackStyle }}">
             <sc-for list="{{ carouselSlides }}" as="slide" hint-placeholder-count="8">
               <img src="{{ slide.src }}" alt="{{ slide.alt }}" loading="lazy" decoding="async" draggable="false" style="width:100%;height:100%;flex-shrink:0;object-fit:cover;display:block;user-select:none" />
@@ -373,7 +376,7 @@ src="https://www.facebook.com/tr?id=1753517255725608&ev=PageView&noscript=1"
               </div>
             </sc-for>
           </div>
-          <div style="background:#0d1117;color:#fff;border-radius:14px;padding:24px 28px">
+          <div id="buy-box" style="background:#0d1117;color:#fff;border-radius:14px;padding:24px 28px">
             <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">{{ c.priceLabel }}</div>
             <div style="font-size:24px;font-weight:900;color:#f7d65a;letter-spacing:-0.5px;margin-bottom:4px">{{ c.product.price }}</div>
             <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:20px;font-weight:500">{{ c.product.priceSub }}</div>
@@ -386,7 +389,7 @@ src="https://www.facebook.com/tr?id=1753517255725608&ev=PageView&noscript=1"
               <button style="background:#f7d65a;color:#0d1117;font-size:15px;font-weight:800;padding:16px 24px;border:none;border-radius:50px;cursor:pointer;font-family:inherit;flex:1" style-hover="background:#d4b020" onClick="{{ addKit }}">{{ c.shop.addToCart }}</button>
             </div>
           </div>
-          <div style="margin-top:16px;background:#fff;border:1.5px solid #eef0f3;border-radius:14px;padding:20px 24px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+          <div id="battery-addon" style="margin-top:16px;background:#fff;border:1.5px solid #eef0f3;border-radius:14px;padding:20px 24px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
             <div style="flex:1;min-width:200px">
               <div style="display:inline-block;background:#fdf6e3;color:#a8860f;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-bottom:8px">{{ c.shop.addonBadge }}</div>
               <div style="font-size:16px;font-weight:800;color:#0d1117;margin-bottom:4px">{{ c.products.battery }}</div>
@@ -570,11 +573,11 @@ const T = {
       badge: "🇻🇳 Đầu tiên tại Việt Nam",
       h1a: "Tự sản xuất điện mặt trời",
       h1b: "ngay tại ban công nhà bạn.",
-      sub: "Hệ thống điện mặt trời mini tự lắp đặt trong 30 phút. Tiết kiệm đến 600.000₫/tháng — không cần thợ, không cần giấy phép EVN.",
+      sub: "Hệ thống điện mặt trời mini tự lắp đặt trong 30 phút. Tiết kiệm đến 400.000₫/tháng — không cần thợ, không cần giấy phép EVN.",
       cta: "Đặt hàng ngay", ctaSec: "Tìm hiểu thêm",
       stats: [
-        { val: "600K₫", label: "tiết kiệm / tháng" },
-        { val: "<2.5", label: "năm hoàn vốn" },
+        { val: "400K₫", label: "tiết kiệm / tháng" },
+        { val: "~3", label: "năm hoàn vốn" },
         { val: "30", label: "phút lắp đặt" },
         { val: "25+", label: "năm tuổi thọ" },
       ],
@@ -583,8 +586,8 @@ const T = {
     benefits: {
       eyebrow: "Lợi ích", title: "5 lý do nên sở hữu ngay hôm nay",
       items: [
-        { icon: "💰", title: "Tiết kiệm tiền điện mỗi ngày", desc: "Giảm đến 600.000₫/tháng trên hóa đơn EVN. Điện mặt trời được ưu tiên sử dụng trước, giảm lượng điện lưới tiêu thụ ngay lập tức." },
-        { icon: "📈", title: "Hoàn vốn chỉ trong chưa đầy 2.5 năm", desc: "Sau thời gian hoàn vốn, bạn được hưởng điện miễn phí suốt hơn 22 năm tuổi thọ còn lại của hệ thống." },
+        { icon: "💰", title: "Tiết kiệm tiền điện mỗi ngày", desc: "Giảm đến 400.000₫/tháng trên hóa đơn EVN. Điện mặt trời được ưu tiên sử dụng trước, giảm lượng điện lưới tiêu thụ ngay lập tức." },
+        { icon: "📈", title: "Hoàn vốn chỉ trong khoảng 3 năm", desc: "Sau thời gian hoàn vốn, bạn được hưởng điện miễn phí suốt hơn 22 năm tuổi thọ còn lại của hệ thống." },
         { icon: "🏠", title: "Lắp tại ban công hoặc mái nhà", desc: "Phù hợp với nhà phố, chung cư và biệt thự. Khung nhôm gắn lan can, không cần khoan tường." },
         { icon: "⚡", title: "Lắp đặt trong 30 phút", desc: "Mở hộp, gắn tấm pin lên khung, cắm đầu nối vào inverter, cắm vào ổ điện — xong! Không cần kỹ thuật viên." },
         { icon: "📋", title: "Không cần thủ tục với EVN", desc: "Hệ thống mini dưới 1kW không yêu cầu đăng ký hay giấy phép. Plug-and-play hoàn toàn." },
@@ -593,17 +596,17 @@ const T = {
     howItWorks: {
       eyebrow: "Cách hoạt động", title: "Chỉ cần cắm điện — mọi thứ còn lại tự động", stepLabel: "Bước",
       steps: [
-        { num: "01", slotId: "step-1", placeholder: "Ảnh cận cảnh tấm pin", title: "Tấm pin hấp thụ từng tia nắng", desc: "Tấm pin JA Solar 460W lắp trên ban công hoặc mái nhà hấp thụ ánh nắng và chuyển hóa thành điện DC." },
-        { num: "02", slotId: "step-2", placeholder: "Ảnh cắm vào ổ điện", title: "Điện mặt trời chảy thẳng vào ổ điện", desc: "Cắm trực tiếp vào ổ điện nhà bạn. Thiết bị trong nhà tự động dùng điện mặt trời trước, phần dư mới hòa vào lưới điện." },
-        { num: "03", slotId: "step-3", placeholder: "Ảnh app S-Miles trên điện thoại", title: "Theo dõi và kiểm soát sản lượng", desc: "Xem sản lượng điện và tiền tiết kiệm theo thời gian thực qua app S-Miles Home." },
-        { num: "04", slotId: "step-4", placeholder: "Ảnh thiết bị gia dụng đang dùng điện", title: "Dùng điện mặt trời, giảm hóa đơn", desc: "Tiết kiệm hàng trăm nghìn đồng mỗi tháng và chủ động hơn với nguồn điện của chính mình." },
+        { num: "01", img: "uploads/step-1-panel-closeup.png", alt: "Ảnh cận cảnh tấm pin", title: "Tấm pin hấp thụ từng tia nắng", desc: "Tấm pin JA Solar 460W lắp trên ban công hoặc mái nhà hấp thụ ánh nắng và chuyển hóa thành điện DC." },
+        { num: "02", img: "uploads/step-2-plug-outlet.png", alt: "Ảnh cắm vào ổ điện", title: "Điện mặt trời chảy thẳng vào ổ điện", desc: "Cắm trực tiếp vào ổ điện nhà bạn. Thiết bị trong nhà tự động dùng điện mặt trời trước, phần dư mới hòa vào lưới điện." },
+        { num: "03", img: "uploads/step-3-app-phone.png", alt: "Ảnh app S-Miles trên điện thoại", title: "Theo dõi và kiểm soát sản lượng", desc: "Xem sản lượng điện và tiền tiết kiệm theo thời gian thực qua app S-Miles Home." },
+        { num: "04", img: "uploads/step-4-appliances.png", alt: "Ảnh thiết bị gia dụng đang dùng điện", title: "Dùng điện mặt trời, giảm hóa đơn", desc: "Tiết kiệm hàng trăm nghìn đồng mỗi tháng và chủ động hơn với nguồn điện của chính mình." },
       ],
     },
     billCompare: {
       eyebrow: "So sánh hóa đơn", title: "Hóa đơn tiền điện giảm rõ rệt ngay tháng đầu",
       before: "Trước khi lắp SmartSolar", beforeVal: "1.100.000₫",
-      after: "Sau khi lắp SmartSolar", afterVal: "500.000₫",
-      callout: "Tiết kiệm khoảng 600.000₫ mỗi tháng",
+      after: "Sau khi lắp SmartSolar", afterVal: "700.000₫",
+      callout: "Tiết kiệm khoảng 400.000₫ mỗi tháng",
       chartTitle: "Dòng tiền tích lũy sau khi đầu tư",
       chartInvest: "Đầu tư ban đầu: 11.000.000₫",
       chartBreak: "Hoàn vốn ở tháng 18",
@@ -650,11 +653,11 @@ const T = {
       locOpts: ["Ban công chung cư", "Mái nhà (nhà phố)", "Sân thượng", "Khác"],
       note: "Ghi chú thêm",
       bankTransfer: "Chuyển khoản ngân hàng (QR)", bankTransferSub: "Quét mã VietQR bằng ứng dụng ngân hàng của bạn",
-      qrAlt: "Mã QR chuyển khoản (mẫu)",
-      mockup: "BẢN MẪU — chưa phải tài khoản thật. Vui lòng không chuyển tiền.",
+      qrAlt: "Mã VietQR chuyển khoản ACB",
       bank: "Ngân hàng", account: "Số tài khoản", holder: "Chủ tài khoản", amount: "Số tiền", reference: "Nội dung chuyển khoản",
-      mockBank: "Ngân hàng mẫu (MOCKUP)",
+      bankName: "ACB (Ngân hàng Á Châu)",
       qrHint: "Vui lòng ghi đúng nội dung chuyển khoản để chúng tôi xác nhận đơn hàng của bạn.",
+      saveQr: "Lưu mã QR",
       summary: "Đơn hàng của bạn", total: "Tổng cộng", orderRef: "Mã đơn hàng",
       place: "Đặt hàng", placing: "Đang gửi…",
       secureNote: "SmartSolar không bao giờ hỏi mật khẩu hay mã OTP ngân hàng của bạn.",
@@ -688,8 +691,8 @@ const T = {
         { q: "Hệ thống điện mặt trời mini là gì?", a: "Đây là hệ thống pin năng lượng mặt trời nhỏ gọn dành cho ban công hoặc mái nhà. Tấm pin sản xuất điện, micro inverter chuyển đổi sang AC 220V và đưa trực tiếp vào mạng điện trong nhà qua ổ cắm thông thường." },
         { q: "Tôi có thể tự lắp không? Có cần thợ điện không?", a: "Hoàn toàn tự lắp được! Hệ thống được thiết kế plug-and-play. Bạn chỉ cần gắn tấm pin lên khung, kết nối cáp DC với inverter, rồi cắm vào ổ điện. Toàn bộ khoảng 30 phút và không cần bằng cấp điện." },
         { q: "Có cần đăng ký với EVN không?", a: "Không. Hệ thống dưới 1kW không yêu cầu đăng ký hay thủ tục với EVN. Bạn cắm và dùng ngay." },
-        { q: "Tôi tiết kiệm được bao nhiêu tiền điện?", a: "Tại Việt Nam, hệ thống 920W DC có thể sản xuất khoảng 100 kWh/tháng. Với giá điện EVN bậc cao (~3.000-4.000₫/kWh), bạn tiết kiệm khoảng 300.000-600.000₫/tháng." },
-        { q: "Thời gian hoàn vốn là bao lâu?", a: "Chưa đầy 2.5 năm tính từ ngày lắp đặt, sau đó bạn được hưởng điện miễn phí trong hơn 22 năm còn lại." },
+        { q: "Tôi tiết kiệm được bao nhiêu tiền điện?", a: "Tại Việt Nam, hệ thống 920W DC có thể sản xuất khoảng 100 kWh/tháng. Với giá điện EVN bậc cao (~3.000-4.000₫/kWh), bạn tiết kiệm khoảng 300.000-400.000₫/tháng." },
+        { q: "Thời gian hoàn vốn là bao lâu?", a: "Khoảng 3 năm tính từ ngày lắp đặt, sau đó bạn được hưởng điện miễn phí trong hơn 22 năm còn lại." },
         { q: "Hệ thống có hoạt động khi mất điện không?", a: "Không. Micro inverter là thiết bị nối lưới, cần tín hiệu từ lưới điện để hoạt động. Khi mất điện, hệ thống tự ngắt vì lý do an toàn. Liên hệ chúng tôi để tìm hiểu gói có pin lưu trữ dự phòng." },
         { q: "Hệ thống có bền với thời tiết Việt Nam không?", a: "Có. Tấm pin JA Solar có chỉ số IP68, chịu được mưa lớn, nhiệt độ cao và bão. Micro inverter Hoymiles đạt IP67. Cả hai đều được thiết kế cho khí hậu nhiệt đới." },
         { q: "Tôi ở chung cư có dùng được không?", a: "Được! Hệ thống được thiết kế đặc biệt cho ban công chung cư. Khung nhôm gắn vào lan can mà không cần khoan tường hay xin phép ban quản lý." },
@@ -698,7 +701,7 @@ const T = {
       ],
     },
     ig: { title: "Theo dõi hành trình của chúng tôi", handle: "@smartsolarvn", cta: "Xem trên Instagram" },
-    mobileBar: { label: "Tiết kiệm ước tính", value: "~600K₫/tháng" },
+    mobileBar: { label: "Tiết kiệm ước tính", value: "~400K₫/tháng" },
     zalo: "Liên hệ với chúng tôi qua Zalo",
     footer: {
       company: "CÔNG TY TNHH NĂNG LƯỢNG MẶT TRỜI SMARTSOLAR",
@@ -713,11 +716,11 @@ const T = {
       badge: "🇻🇳 First in Vietnam",
       h1a: "Generate your own solar power",
       h1b: "right from your balcony.",
-      sub: "Self-install mini solar system in 30 minutes. Save up to 600,000₫/month on electricity — no electrician, no EVN paperwork.",
+      sub: "Self-install mini solar system in 30 minutes. Save up to 400,000₫/month on electricity — no electrician, no EVN paperwork.",
       cta: "Order now", ctaSec: "Learn more",
       stats: [
-        { val: "600K₫", label: "saved / month" },
-        { val: "<2.5", label: "yr payback" },
+        { val: "400K₫", label: "saved / month" },
+        { val: "~3", label: "yr payback" },
         { val: "30", label: "min install" },
         { val: "25+", label: "year lifespan" },
       ],
@@ -726,8 +729,8 @@ const T = {
     benefits: {
       eyebrow: "Benefits", title: "5 reasons to go solar today",
       items: [
-        { icon: "💰", title: "Save on electricity every day", desc: "Cut your EVN bill by up to 600,000₫/month. Solar power is used first, automatically reducing grid consumption." },
-        { icon: "📈", title: "Payback in under 2.5 years", desc: "After payback, enjoy free electricity for the remaining 22+ year lifespan of the system." },
+        { icon: "💰", title: "Save on electricity every day", desc: "Cut your EVN bill by up to 400,000₫/month. Solar power is used first, automatically reducing grid consumption." },
+        { icon: "📈", title: "Payback in about 3 years", desc: "After payback, enjoy free electricity for the remaining 22+ year lifespan of the system." },
         { icon: "🏠", title: "Install on balcony or rooftop", desc: "Works for apartments, townhouses and villas. Aluminium frame attaches to railings — no wall drilling needed." },
         { icon: "⚡", title: "Install in 30 minutes", desc: "Unbox, mount panels, connect to inverter, plug into your outlet — done. No electrician required." },
         { icon: "📋", title: "No EVN paperwork required", desc: "Mini systems under 1kW need no registration or permits. Truly plug-and-play." },
@@ -736,17 +739,17 @@ const T = {
     howItWorks: {
       eyebrow: "How it works", title: "Just plug it in — everything else runs on its own", stepLabel: "Step",
       steps: [
-        { num: "01", slotId: "step-1", placeholder: "Close-up panel photo", title: "Panels catch every ray of sunlight", desc: "JA Solar 460W panels mounted on your balcony or roof absorb sunlight and convert it into DC electricity." },
-        { num: "02", slotId: "step-2", placeholder: "Photo of plugging into outlet", title: "Solar power flows straight into your outlet", desc: "Plug directly into your home outlet. Appliances automatically draw on solar power first, any surplus flows to the grid." },
-        { num: "03", slotId: "step-3", placeholder: "S-Miles app on phone photo", title: "Monitor and control your output", desc: "Track production and savings in real time through the S-Miles Home app." },
-        { num: "04", slotId: "step-4", placeholder: "Household appliances photo", title: "Use solar power, cut your bill", desc: "Save hundreds of thousands of đồng each month and gain more independence over your own electricity." },
+        { num: "01", img: "uploads/step-1-panel-closeup.png", alt: "Close-up panel photo", title: "Panels catch every ray of sunlight", desc: "JA Solar 460W panels mounted on your balcony or roof absorb sunlight and convert it into DC electricity." },
+        { num: "02", img: "uploads/step-2-plug-outlet.png", alt: "Photo of plugging into outlet", title: "Solar power flows straight into your outlet", desc: "Plug directly into your home outlet. Appliances automatically draw on solar power first, any surplus flows to the grid." },
+        { num: "03", img: "uploads/step-3-app-phone.png", alt: "S-Miles app on phone photo", title: "Monitor and control your output", desc: "Track production and savings in real time through the S-Miles Home app." },
+        { num: "04", img: "uploads/step-4-appliances.png", alt: "Household appliances photo", title: "Use solar power, cut your bill", desc: "Save hundreds of thousands of đồng each month and gain more independence over your own electricity." },
       ],
     },
     billCompare: {
       eyebrow: "Bill comparison", title: "Your electricity bill drops noticeably from month one",
       before: "Before SmartSolar", beforeVal: "1,100,000₫",
-      after: "After SmartSolar", afterVal: "500,000₫",
-      callout: "Save about 600,000₫ every month",
+      after: "After SmartSolar", afterVal: "700,000₫",
+      callout: "Save about 400,000₫ every month",
       chartTitle: "Cumulative cash flow after investing",
       chartInvest: "Initial investment: 11,000,000₫",
       chartBreak: "Payback at month 18",
@@ -793,11 +796,11 @@ const T = {
       locOpts: ["Apartment balcony", "Townhouse rooftop", "Terrace / rooftop garden", "Other"],
       note: "Additional notes",
       bankTransfer: "Bank transfer (QR)", bankTransferSub: "Scan the VietQR code with your banking app",
-      qrAlt: "Bank transfer QR code (mockup)",
-      mockup: "MOCKUP — not a real account. Please do not transfer money.",
+      qrAlt: "ACB VietQR bank transfer code",
       bank: "Bank", account: "Account number", holder: "Account holder", amount: "Amount", reference: "Transfer reference",
-      mockBank: "Sample Bank (MOCKUP)",
+      bankName: "ACB (Asia Commercial Bank)",
       qrHint: "Please use the exact transfer reference so we can match your payment to your order.",
+      saveQr: "Save QR code",
       summary: "Your order", total: "Total", orderRef: "Order number",
       place: "Place order", placing: "Sending…",
       secureNote: "SmartSolar will never ask for your bank password or OTP code.",
@@ -831,8 +834,8 @@ const T = {
         { q: "What is a mini solar system?", a: "A compact solar system for balconies or rooftops. Panels generate DC power, the micro inverter converts it to 220V AC, and it feeds directly into your home circuit through a standard outlet." },
         { q: "Can I install it myself? Do I need an electrician?", a: "Yes, fully self-install! The system is plug-and-play. Mount the panels, connect the DC cables to the inverter, then plug into your outlet. Around 30 minutes, no electrical licence needed." },
         { q: "Do I need to register with EVN?", a: "No. Systems under 1kW don't require any registration or permits with EVN. Just plug in and use." },
-        { q: "How much will I save?", a: "In Vietnam's sunny climate, the 920W DC system can produce ~100 kWh/month. At upper-tier EVN rates (~3,000-4,000₫/kWh), that's 300,000-600,000₫/month in savings." },
-        { q: "How long is the payback period?", a: "Under 2.5 years from installation, after which you receive effectively free electricity for the remaining 22+ year system lifetime." },
+        { q: "How much will I save?", a: "In Vietnam's sunny climate, the 920W DC system can produce ~100 kWh/month. At upper-tier EVN rates (~3,000-4,000₫/kWh), that's 300,000-400,000₫/month in savings." },
+        { q: "How long is the payback period?", a: "About 3 years from installation, after which you receive effectively free electricity for the remaining 22+ year system lifetime." },
         { q: "Does it work during a power outage?", a: "No. The micro inverter is grid-tied and needs the grid signal to operate. During outages it shuts off for safety. Contact us about battery storage add-ons." },
         { q: "Is it weatherproof for Vietnam's climate?", a: "Yes. JA Solar panels are IP68 rated, the Hoymiles inverter is IP67 — both designed for tropical heat, heavy rain, and storms." },
         { q: "I live in an apartment. Can I use it?", a: "Absolutely. The mounting frame attaches to your balcony railing without drilling walls or requiring building management approval." },
@@ -841,7 +844,7 @@ const T = {
       ],
     },
     ig: { title: "Follow our journey", handle: "@smartsolarvn", cta: "View on Instagram" },
-    mobileBar: { label: "Estimated savings", value: "~600K₫/month" },
+    mobileBar: { label: "Estimated savings", value: "~400K₫/month" },
     zalo: "Chat with us on Zalo",
     footer: {
       company: "SMARTSOLAR ENERGY COMPANY LIMITED",
@@ -865,6 +868,7 @@ const MEDIA_LOGOS = [
 
 // Meta Pixel event; fbq may be missing when an ad blocker stops the pixel script
 const trackPixel = (event, params) => { if (typeof window.fbq === "function") window.fbq("track", event, params); };
+const trackPixelCustom = (event, params) => { if (typeof window.fbq === "function") window.fbq("trackCustom", event, params); };
 
 // Web-sized copies of uploads/carousel/VN - MiniSolar and EN - MiniSolar
 const CAROUSEL_SLIDES = ["cover_2", "4", "5", "6", "7", "8", "9", "qr_2"];
@@ -881,8 +885,8 @@ const PRODUCTS = {
 const MAX_QTY = 10;
 const CART_KEY = "smartsolar-cart";
 
-// Placeholder bank details shown next to the mockup QR. Replace with the real account before going live.
-const MOCK_BANK = { account: "0000 0000 0000", holder: "CONG TY TNHH NANG LUONG MAT TROI SMARTSOLAR" };
+// Account behind uploads/payment/acb-vietqr.png (static VietQR: customers type the amount and reference themselves)
+const BANK_ACCOUNT = "13109468";
 
 const fmtVND = (n, lang) => n.toLocaleString(lang === "vi" ? "vi-VN" : "en-US") + "₫";
 const cartTotal = (cart) => Object.entries(cart).reduce((sum, [id, qty]) => sum + PRODUCTS[id].price * qty, 0);
@@ -905,19 +909,6 @@ const newOrderRef = () => {
   return "SS" + Array.from(bytes, (b) => chars[b % chars.length]).join("");
 };
 
-// Fake QR pattern with a MOCKUP band across it: looks like a VietQR code but no banking app can read it.
-const mockQrSrc = (seed) => {
-  let h = 2166136261;
-  for (const ch of seed) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
-  const rand = () => { h = (h + 0x6D2B79F5) | 0; let t = Math.imul(h ^ (h >>> 15), 1 | h); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
-  const N = 29;
-  const inFinder = (x, y) => (x < 8 && y < 8) || (x >= N - 8 && y < 8) || (x < 8 && y >= N - 8);
-  let cells = "";
-  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) if (!inFinder(x, y) && rand() < 0.5) cells += `M${x} ${y}h1v1h-1z`;
-  const finder = (x, y) => `<rect x="${x}" y="${y}" width="7" height="7" fill="#0d1117"/><rect x="${x + 1}" y="${y + 1}" width="5" height="5" fill="#fff"/><rect x="${x + 2}" y="${y + 2}" width="3" height="3" fill="#0d1117"/>`;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 ${N + 4} ${N + 4}" shape-rendering="crispEdges"><rect x="-2" y="-2" width="${N + 4}" height="${N + 4}" fill="#fff"/><path d="${cells}" fill="#0d1117"/>${finder(0, 0)}${finder(N - 7, 0)}${finder(0, N - 7)}<rect x="3" y="${N / 2 - 2.5}" width="${N - 6}" height="5" rx="1" fill="#fff" stroke="#b91c1c" stroke-width="0.4"/><text x="${N / 2}" y="${N / 2 + 1.2}" text-anchor="middle" font-family="Arial,sans-serif" font-size="3.4" font-weight="700" fill="#b91c1c">MOCKUP</text></svg>`;
-  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
-};
 
 // --- Google Form wiring ---------------------------------------------------
 // Orders go into the same Google Form as the live site (shop.smartsolar.com.vn); its
@@ -1000,7 +991,13 @@ class Component extends DCLogic {
   componentDidMount() {
     this._onResize = () => this.setState({ windowWidth: window.innerWidth });
     window.addEventListener("resize", this._onResize);
-    this._onScroll = () => this.setState({ scrolled: window.scrollY > 480 });
+    this._onScroll = () => {
+      // The floating order bar would cover the add-to-basket buttons, so hide it while the buy box or battery add-on is on screen
+      const onScreen = (id) => { const r = document.getElementById(id)?.getBoundingClientRect(); return !!r && r.bottom > 0 && r.top < window.innerHeight; };
+      const buyBoxOnScreen = onScreen("buy-box") || onScreen("battery-addon");
+      this.setState({ scrolled: window.scrollY > 480, buyBoxOnScreen });
+      this.trackProductSeen();
+    };
     window.addEventListener("scroll", this._onScroll);
     // Browser back button leaves the checkout / confirmation page
     this._onPop = () => { if (location.hash !== "#checkout" && this.state.view !== "shop") this.setState({ view: "shop" }); };
@@ -1008,6 +1005,12 @@ class Component extends DCLogic {
     this._onKey = (e) => { if (e.key === "Escape" && this.state.cartOpen) this.closeCart(); };
     window.addEventListener("keydown", this._onKey);
     if (location.hash === "#checkout" || location.hash === "#order-placed") history.replaceState(null, "", location.pathname + location.search);
+    // Meta Pixel: factsheet downloads
+    this._onDocClick = (e) => {
+      const link = e.target.closest?.("a[href*=\"uploads/factsheets/\"]");
+      if (link) trackPixelCustom("DownloadFactsheet", { file: decodeURIComponent(link.getAttribute("href").split("/").pop()) });
+    };
+    document.addEventListener("click", this._onDocClick);
     this.startCarousel();
   }
   componentWillUnmount() {
@@ -1015,10 +1018,32 @@ class Component extends DCLogic {
     window.removeEventListener("scroll", this._onScroll);
     window.removeEventListener("popstate", this._onPop);
     window.removeEventListener("keydown", this._onKey);
+    document.removeEventListener("click", this._onDocClick);
     this.stopCarousel();
   }
 
-  scrollTo(id) { document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); }
+  // Meta Pixel ViewContent, once per visit, when the product section is on screen
+  trackProductSeen() {
+    if (this._productSeen) return;
+    const rect = document.getElementById("product")?.getBoundingClientRect();
+    if (!rect || rect.top > window.innerHeight * 0.7 || rect.bottom < 0) return;
+    this._productSeen = true;
+    trackPixel("ViewContent", { content_ids: ["kit"], content_type: "product", content_name: "SmartSolar Mini", value: PRODUCTS.kit.price, currency: "VND" });
+  }
+
+  scrollTo(id, block = "start") { document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block }); }
+
+  // Order buttons: on laptops the carousel sits beside the buy box, so frame both (carousel top under
+  // the header, buy box fully visible). Screens too short for both keep the buy box whole. Phones: centre the buy box.
+  scrollToBuyBox() {
+    const box = document.getElementById("buy-box")?.getBoundingClientRect();
+    const carousel = document.getElementById("product-carousel")?.getBoundingClientRect();
+    if (!box) return;
+    if (!carousel || box.left < carousel.right) { this.scrollTo("buy-box", "center"); return; }
+    const carouselTop = carousel.top + window.scrollY - 80;
+    const boxVisible = box.bottom + window.scrollY + 24 - window.innerHeight;
+    window.scrollTo({ top: Math.max(carouselTop, boxVisible), behavior: "smooth" });
+  }
 
   setCart(cart) { saveCart(cart); this.setState({ cart }); }
   setQty(id, qty) {
@@ -1034,13 +1059,14 @@ class Component extends DCLogic {
   openCart() { document.body.style.overflow = "hidden"; this.setState({ cartOpen: true }); }
   closeCart() { document.body.style.overflow = ""; this.setState({ cartOpen: false }); }
 
-  // Back to the landing page, optionally scrolling to a section once it has rendered
-  showShop(sectionId) {
+  // Back to the landing page, then scroll to a section id (or run a scroll function) once it has rendered
+  showShop(target) {
     this.closeCart();
-    if (this.state.view === "shop") { if (sectionId) this.scrollTo(sectionId); return; }
+    const go = typeof target === "function" ? target : () => (target ? this.scrollTo(target) : window.scrollTo(0, 0));
+    if (this.state.view === "shop") { if (target) go(); return; }
     if (location.hash) history.replaceState(null, "", location.pathname + location.search);
     this.setState({ view: "shop" });
-    setTimeout(() => (sectionId ? this.scrollTo(sectionId) : window.scrollTo(0, 0)), 50);
+    setTimeout(go, 50);
   }
   goCheckout() {
     const { cart, orderRef } = this.state;
@@ -1096,7 +1122,7 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const { lang, openFaq, windowWidth, scrolled, slide, zaloHover, view, cart, cartOpen, kitQty, checkout, payMethod, checkoutError, placing, orderRef, placedOrder } = this.state;
+    const { lang, openFaq, windowWidth, scrolled, buyBoxOnScreen, slide, zaloHover, view, cart, cartOpen, kitQty, checkout, payMethod, checkoutError, placing, orderRef, placedOrder } = this.state;
     const c = T[lang];
     const isMobile = windowWidth < 768;
     const isShopView = view === "shop";
@@ -1113,9 +1139,8 @@ class Component extends DCLogic {
     const payRef = view === "confirm" ? placedOrder?.ref : orderRef;
     const payTotal = view === "confirm" ? placedOrder?.total : cartTotal(cart);
     const paymentRows = [
-      { label: c.checkout.bank, val: c.checkout.mockBank },
-      { label: c.checkout.account, val: MOCK_BANK.account },
-      { label: c.checkout.holder, val: MOCK_BANK.holder },
+      { label: c.checkout.bank, val: c.checkout.bankName },
+      { label: c.checkout.account, val: BANK_ACCOUNT },
       { label: c.checkout.amount, val: fmtVND(payTotal || 0, lang) },
       { label: c.checkout.reference, val: payRef || "" },
     ];
@@ -1163,10 +1188,10 @@ class Component extends DCLogic {
       heroBenefit, restBenefits,
       benefitsGridCols: isMobile ? "1fr" : "0.9fr 1.6fr",
       isDesktop: !isMobile,
-      showMobileBar: isMobile && scrolled && isShopView,
-      showDesktopFab: !isMobile && scrolled && isShopView,
+      showMobileBar: isMobile && scrolled && isShopView && !buyBoxOnScreen,
+      showDesktopFab: !isMobile && scrolled && isShopView && !buyBoxOnScreen,
       // Sits above the mobile order bar / desktop order widget when those are showing
-      zaloWrapStyle: { position: "fixed", right: isMobile ? 16 : 28, bottom: scrolled && isShopView ? (isMobile ? 84 : 124) : (isMobile ? 16 : 28), zIndex: 301, display: "flex", alignItems: "center", gap: 14, transition: "bottom 0.3s", fontFamily: "'Manrope',sans-serif" },
+      zaloWrapStyle: { position: "fixed", right: isMobile ? 16 : 28, bottom: scrolled && isShopView && !buyBoxOnScreen ? (isMobile ? 84 : 124) : (isMobile ? 16 : 28), zIndex: 301, display: "flex", alignItems: "center", gap: 14, transition: "bottom 0.3s", fontFamily: "'Manrope',sans-serif" },
       showZaloTip: !isMobile && zaloHover,
       showZalo: () => this.setState({ zaloHover: true }),
       hideZalo: () => this.setState({ zaloHover: false }),
@@ -1177,11 +1202,11 @@ class Component extends DCLogic {
       langEnStyle: lang === "en" ? activeLang : inactiveLang,
       setLangVi: () => this.setState({ lang: "vi" }),
       setLangEn: () => this.setState({ lang: "en" }),
-      scrollTop: () => window.scrollTo({ top: 0, behavior: "smooth" }),
-      goBenefits: () => this.scrollTo("benefits"),
-      goProduct: () => this.scrollTo("product"),
-      goFaq: () => this.scrollTo("faq"),
-      goOrder: () => this.showShop("product"),
+      scrollTop: () => (this.state.view === "shop" ? window.scrollTo({ top: 0, behavior: "smooth" }) : this.showShop()),
+      goBenefits: () => this.showShop("benefits"),
+      goProduct: () => this.showShop("product"),
+      goFaq: () => this.showShop("faq"),
+      goOrder: () => this.showShop(() => this.scrollToBuyBox()),
 
       // Shop + basket
       isShopView, isCheckoutView: view === "checkout", isConfirmView: view === "confirm",
@@ -1196,7 +1221,10 @@ class Component extends DCLogic {
       hasCartItems: cartLines.length > 0,
       cartEmpty: cartLines.length === 0,
       cartTotalFmt: fmtVND(cartTotal(cart), lang),
-      openCart: () => this.openCart(),
+      openCart: () => {
+        this.openCart();
+        trackPixelCustom("ViewCart", { num_items: cartCount(cart), value: cartTotal(cart), currency: "VND" });
+      },
       closeCart: () => this.closeCart(),
       continueShopping: () => this.showShop(),
       goCheckout: () => this.goCheckout(),
@@ -1212,7 +1240,6 @@ class Component extends DCLogic {
       },
       payOptionStyle: { width: "100%", display: "flex", alignItems: "center", gap: 14, padding: "16px 18px", borderRadius: 12, cursor: "pointer", fontFamily: "inherit", background: isBankTransfer ? "#fffbea" : "#fff", border: `2px solid ${isBankTransfer ? "#f7d65a" : "#eef0f3"}` },
       payRadioStyle: { width: 20, height: 20, borderRadius: "50%", flexShrink: 0, border: `2px solid ${isBankTransfer ? "#0d1117" : "#c8cdd6"}`, background: isBankTransfer ? "radial-gradient(circle, #0d1117 0 4px, #fff 5px)" : "#fff" },
-      qrMockSrc: mockQrSrc(payRef || "smartsolar"),
       paymentRows,
       orderRef,
       placedRef: placedOrder?.ref || "",
@@ -1222,11 +1249,12 @@ class Component extends DCLogic {
       placeOrder: () => this.placeOrder(),
       checkoutCols: isMobile ? "1fr" : "1.5fr 1fr",
       twoCols: isMobile ? "1fr" : "1fr 1fr",
-      qrCols: isMobile ? "1fr" : "180px 1fr",
+      qrCols: isMobile ? "1fr" : "220px 1fr",
       confirmPad: isMobile ? "28px 20px" : "40px",
       summaryStyle: { background: "#fff", border: "1.5px solid #eef0f3", borderRadius: 16, padding: 28, position: isMobile ? "static" : "sticky", top: 88 },
 
       trackZalo: () => trackPixel("Contact", { content_name: "Zalo floating button" }),
+      qrFileName: `SmartSolar-QR-${payRef || "ACB"}.png`,
     };
   }
 }
