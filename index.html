@@ -140,7 +140,7 @@ src="https://www.facebook.com/tr?id=1753517255725608&ev=PageView&noscript=1"
               <sc-if value="{{ isBankTransfer }}" hint-placeholder-val="{{ false }}">
                 <div style="margin-top:16px;display:grid;grid-template-columns:{{ qrCols }};gap:20px;align-items:center;background:#f6f7f9;border-radius:12px;padding:20px">
                   <div style="justify-self:center;text-align:center">
-                    <img src="uploads/payment/acb-vietqr.png" alt="{{ c.checkout.qrAlt }}" loading="lazy" width="487" height="353" style="width:220px;height:auto;border-radius:8px;display:block" />
+                    <img src="{{ qrSrc }}" alt="{{ c.checkout.qrAlt }}" width="540" height="540" style="width:220px;height:auto;border-radius:8px;display:block" />
                   </div>
                   <div>
                     <sc-for list="{{ paymentRows }}" as="row" hint-placeholder-count="5">
@@ -190,8 +190,8 @@ src="https://www.facebook.com/tr?id=1753517255725608&ev=PageView&noscript=1"
         <h2 style="font-size:18px;font-weight:800;color:#0d1117;margin:0 0 16px">{{ c.confirm.payNow }}</h2>
         <div style="display:grid;grid-template-columns:{{ qrCols }};gap:20px;align-items:center;background:#f6f7f9;border-radius:12px;padding:20px;margin-bottom:28px">
           <div style="justify-self:center;text-align:center">
-            <img src="uploads/payment/acb-vietqr.png" alt="{{ c.checkout.qrAlt }}" loading="lazy" width="487" height="353" style="width:220px;height:auto;border-radius:8px;display:block" />
-            <a href="uploads/payment/acb-vietqr.png" download="{{ qrFileName }}" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:800;color:#1a6e3c;text-decoration:none;padding:8px 14px;border:1.5px solid #1a6e3c;border-radius:50px" style-hover="background:#eaf4ee">⬇ {{ c.checkout.saveQr }}</a>
+            <img src="{{ qrSrc }}" alt="{{ c.checkout.qrAlt }}" width="540" height="540" style="width:220px;height:auto;border-radius:8px;display:block" />
+            <button onClick="{{ saveQr }}" style="display:inline-block;margin-top:8px;font-family:inherit;font-size:13px;font-weight:800;color:#1a6e3c;background:none;cursor:pointer;padding:8px 14px;border:1.5px solid #1a6e3c;border-radius:50px" style-hover="background:#eaf4ee">⬇ {{ c.checkout.saveQr }}</button>
           </div>
           <div>
             <sc-for list="{{ paymentRows }}" as="row" hint-placeholder-count="5">
@@ -885,8 +885,33 @@ const PRODUCTS = {
 const MAX_QTY = 10;
 const CART_KEY = "smartsolar-cart";
 
-// Account behind uploads/payment/acb-vietqr.png (static VietQR: customers type the amount and reference themselves)
 const BANK_ACCOUNT = "13109468";
+// VietQR image for the ACB account, prefilled with the order's amount and reference (bank description)
+const VIETQR_URL = "https://img.vietqr.io/image/970416-13109468-LcfDYio.svg?accountName=CTY+TNHH+NANG+LUONG+MAT+TROI+SMARTSOLAR";
+const vietQrSrc = (amount, ref) => `${VIETQR_URL}&amount=${amount || 0}&addInfo=${encodeURIComponent(ref || "")}`;
+
+// Saves the QR as a PNG so phones can put it in the photo gallery and open it from the banking app
+const saveQrImage = async (src, fileName) => {
+  try {
+    const svg = await (await fetch(src)).blob();
+    const img = new Image();
+    img.src = URL.createObjectURL(svg);
+    await img.decode();
+    const canvas = document.createElement("canvas");
+    canvas.width = img.naturalWidth || 540;
+    canvas.height = img.naturalHeight || 540;
+    canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+    URL.revokeObjectURL(img.src);
+    const png = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(png);
+    a.download = fileName;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  } catch {
+    window.open(src, "_blank");
+  }
+};
 
 const fmtVND = (n, lang) => n.toLocaleString(lang === "vi" ? "vi-VN" : "en-US") + "₫";
 const cartTotal = (cart) => Object.entries(cart).reduce((sum, [id, qty]) => sum + PRODUCTS[id].price * qty, 0);
@@ -1254,7 +1279,8 @@ class Component extends DCLogic {
       summaryStyle: { background: "#fff", border: "1.5px solid #eef0f3", borderRadius: 16, padding: 28, position: isMobile ? "static" : "sticky", top: 88 },
 
       trackZalo: () => trackPixel("Contact", { content_name: "Zalo floating button" }),
-      qrFileName: `SmartSolar-QR-${payRef || "ACB"}.png`,
+      qrSrc: vietQrSrc(payTotal, payRef),
+      saveQr: () => saveQrImage(vietQrSrc(payTotal, payRef), `SmartSolar-QR-${payRef || "ACB"}.png`),
     };
   }
 }
